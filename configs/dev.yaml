@@ -1,0 +1,15 @@
+environment: dev
+
+simulation:
+  devices: 10
+  interval_seconds: 5
+
+storage:
+  raw_path: "./data/raw"
+  bronze_path: "./data/bronze"
+  silver_path: "./data/silver"
+  gold_path: "./data/gold"
+
+spark:
+  app_name: "iot-platform-dev"
+  shuffle_partitions: 8

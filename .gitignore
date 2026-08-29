@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Poetry
+.venv/
+
+# Environment
+.env
+
+# Spark
+spark-warehouse/
+metastore_db/
+
+# Generated data
+data/raw/*
+data/bronze/*
+data/silver/*
+data/gold/*
+data/dlq/*
+
+# Notebooks
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
