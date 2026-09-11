@@ -1,0 +1,14 @@
+{
+  "sql": "SELECT * FROM 'iot/devices/+/telemetry'",
+  "description": "Route IoT telemetry from devices to the raw Firehose stream",
+  "actions": [
+    {
+      "firehose": {
+        "deliveryStreamName": "iot-platform-raw-stream",
+        "roleArn": "arn:aws:iam::821667315166:role/AWSIoTDataPlatformRuleRole",
+        "separator": "\n"
+      }
+    }
+  ],
+  "ruleDisabled": false
+}

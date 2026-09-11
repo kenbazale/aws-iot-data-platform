@@ -31,3 +31,6 @@ data/dlq/*
 
 # OS
 .DS_Store
+
+# AWS IoT device credentials
+aws/iot/certs/

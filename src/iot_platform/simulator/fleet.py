@@ -21,7 +21,7 @@ class DeviceFleet:
         cls,
         number_of_devices: int,
         seed: int | None = None,
-    ) -> "DeviceFleet":
+    ) ->  "DeviceFleet":
         """
         Create a fleet of simulated IoT devices.
 
@@ -34,7 +34,9 @@ class DeviceFleet:
         """
 
         if number_of_devices <= 0:
-            raise ValueError("number_of_devices must be greater than zero")
+            raise ValueError(
+                "number_of_devices must be greater than zero"
+            )
 
         if seed is not None:
             random.seed(seed)
@@ -46,17 +48,27 @@ class DeviceFleet:
                 device_id=f"device-{i:06d}",
                 device_type="industrial_cooler",
                 firmware_version="1.0.0",
+
+                # Give each device slightly different characteristics.
                 base_temperature=random.uniform(-20.0, -15.0),
                 base_humidity=random.uniform(50.0, 70.0),
                 base_pressure=random.uniform(1.7, 2.0),
+
+                # Simulated Malawi-area coordinates.
                 latitude=random.uniform(-17.0, -14.0),
                 longitude=random.uniform(33.0, 36.0),
             )
+
             devices.append(device)
 
         return cls(devices=devices)
 
     def generate_events(self) -> list[dict]:
-        """Generate one telemetry event from every device."""
+        """
+        Generate one telemetry event from every device.
+        """
 
-        return [device.generate_event() for device in self.devices]
+        return [
+            device.generate_event()
+            for device in self.devices
+        ]
