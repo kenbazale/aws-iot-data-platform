@@ -75,6 +75,8 @@ print(f"Reading raw streaming data from {SOURCE_PATH}")
 raw_df = (
     spark.read
     .schema(TELEMETRY_SCHEMA)
+    .option("recursiveFileLookup", "true")
+    .option("multiLine", "true")
     .json(SOURCE_PATH)
 )
 

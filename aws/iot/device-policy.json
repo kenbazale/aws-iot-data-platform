@@ -22,4 +22,3 @@
       "Resource": "arn:aws:iot:us-east-1:821667315166:topic/iot/devices/iot-platform-device-001/telemetry"
     }
   ]
-}
