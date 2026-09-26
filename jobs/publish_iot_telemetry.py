@@ -78,10 +78,11 @@ def build_client(
     endpoint: str,
     cert_dir: Path,
     ca_file: Path,
+    client_id: str,
 ) -> mqtt.Client:
     client = mqtt.Client(
         callback_api_version=mqtt.CallbackAPIVersion.VERSION2,
-        client_id="aws-iot-data-platform-publisher",
+        client_id=client_id,
         protocol=mqtt.MQTTv5,
     )
 
@@ -137,6 +138,7 @@ def main() -> None:
         endpoint=args.endpoint,
         cert_dir=cert_dir,
         ca_file=ca_file,
+        client_id=args.device_id,
     )
 
     topic = f"iot/devices/{args.device_id}/telemetry"
